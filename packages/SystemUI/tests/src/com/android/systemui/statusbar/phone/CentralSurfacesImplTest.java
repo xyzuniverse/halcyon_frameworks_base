@@ -354,7 +354,6 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
 
         mVisualInterruptionDecisionProvider =
                 VisualInterruptionDecisionProviderTestUtil.INSTANCE.createProviderByFlag(
-                        mContext,
                         mAmbientDisplayConfiguration,
                         mBatteryController,
                         mDeviceProvisionedController,
@@ -1120,7 +1119,6 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
             NotificationInterruptStateProviderImpl {
 
         TestableNotificationInterruptStateProviderImpl(
-                Context context,
                 PowerManager powerManager,
                 AmbientDisplayConfiguration ambientDisplayConfiguration,
                 StatusBarStateController controller,
@@ -1138,7 +1136,6 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
                 GlobalSettings globalSettings,
                 EventLog eventLog) {
             super(
-                    context,
                     powerManager,
                     ambientDisplayConfiguration,
                     batteryController,
