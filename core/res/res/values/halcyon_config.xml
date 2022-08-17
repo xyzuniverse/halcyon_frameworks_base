@@ -55,7 +55,7 @@
     <!-- Whether device has an alert slider. -->
     <bool name="config_hasAlertSlider">false</bool>
 
-<!-- Defines the sysfs attribute path used by pocket bridge
+    <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
     <string name="config_pocketBridgeSysfsInpocket"></string>
 
@@ -64,4 +64,6 @@
     <!-- Defines custom OEM sensor for pocket detection. -->
     <string name="config_pocketJudgeVendorSensorName"></string>
 
+    <!-- Whether to cancel fingerprint operation if not idle -->
+    <bool name="config_fpCancelIfNotIdle">false</bool>
 </resources>

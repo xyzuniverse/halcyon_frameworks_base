@@ -53,7 +53,7 @@
     <java-symbol type="string" name="alert_slider_uevent_match_path" />
     <java-symbol type="bool" name="config_hasAlertSlider" />
 
-<!-- Pocket Lock -->
+    <!-- Pocket Lock -->
     <java-symbol type="layout" name="pocket_lock_view" />
     <java-symbol type="bool" name="config_pocketModeSupported" />
 
@@ -61,5 +61,8 @@
     <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
     <!-- Pocket Service -->
     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
+
+    <!-- Whether to cancel fingerprint operation if not idle -->
+    <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
 
 </resources>
