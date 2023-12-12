@@ -584,7 +584,7 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
             }
         }
 
-        updateThemeOverlays();
+        updateThemeOverlays(forceReload);
     }
 
     /**
@@ -748,6 +748,10 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
     }
 
     private void updateThemeOverlays() {
+        updateThemeOverlays(false);
+    }
+
+    private void updateThemeOverlays(boolean forceReload) {
         final int currentUser = mUserTracker.getUserId();
         final String overlayPackageJson = mSecureSettings.getStringForUser(
                 Settings.Secure.THEME_CUSTOMIZATION_OVERLAY_PACKAGES,
@@ -845,7 +849,7 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
                     mActivityManager.setThemeOverlayReady(currentUser);
                 };
 
-        if (colorSchemeIsApplied(managedProfiles)) {
+        if (!forceReload && colorSchemeIsApplied(managedProfiles)) {
             Log.d(TAG, "Skipping overlay creation. Theme was already: " + mColorScheme);
             onCompleteCallback.run();
             return;
