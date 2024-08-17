@@ -125,7 +125,6 @@ public class ThemeOverlayApplier implements Dumpable {
             OVERLAY_CATEGORY_DYNAMIC_COLOR,
             OVERLAY_CATEGORY_ICON_ANDROID,
             OVERLAY_CATEGORY_ICON_SYSUI,
-            OVERLAY_CATEGORY_ICON_SETTINGS,
             OVERLAY_CATEGORY_ICON_THEME_PICKER);
 
     /* Categories that need to be applied to the current user as well as the system user. */
