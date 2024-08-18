@@ -269,5 +269,6 @@ public class SecureSettings {
         Settings.Secure.CAMERA_EXTENSIONS_FALLBACK,
         Settings.Secure.VISUAL_QUERY_ACCESSIBILITY_DETECTION_ENABLED,
         Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS
+        Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
     };
 }

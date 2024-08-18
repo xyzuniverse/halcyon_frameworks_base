@@ -35,6 +35,7 @@ phony {
         "TransparentNavigationBarOverlay",
         "NotesRoleEnabledOverlay",
         "preinstalled-packages-platform-overlays.xml",
+        "NavigationBarModeGesturalOverlayFS"
     ],
 }
 
