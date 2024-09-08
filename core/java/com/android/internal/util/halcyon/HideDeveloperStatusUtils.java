@@ -3,12 +3,12 @@ package com.android.internal.util.halcyon;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.UserHandle;
+import android.provider.Settings;
+import android.util.Log;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
-import android.provider.Settings;
 
 public class HideDeveloperStatusUtils {
     private static Set<String> mApps = new HashSet<>();
@@ -22,12 +22,16 @@ public class HideDeveloperStatusUtils {
         return getApps(cr).contains(packageName) && settingsToHide.contains(name);
     }
 
-    private static Set<String> getApps(ContentResolver cr) {
-        String apps = Settings.Secure.getString(cr, Settings.Secure.HIDE_DEVELOPER_STATUS);
-        if (apps != null) {
-            mApps = new HashSet<>(Arrays.asList(apps.split(",")));
-        } else {
-            mApps = new HashSet<>();
+    private static synchronized Set<String> getApps(ContentResolver cr) {
+        if (mApps == null || mApps.isEmpty()) {
+            String apps = Settings.Secure.getString(cr, Settings.Secure.HIDE_DEVELOPER_STATUS);
+            if (apps != null) {
+                Log.d("HideDeveloperStatusUtils", "HIDE_DEVELOPER_STATUS contains: " + apps);
+                mApps = new HashSet<>(Arrays.asList(apps.split(",")));
+            } else {
+                Log.d("HideDeveloperStatusUtils", "HIDE_DEVELOPER_STATUS is null or empty");
+                mApps = new HashSet<>();
+            }
         }
         return mApps;
     }
@@ -54,3 +58,4 @@ public class HideDeveloperStatusUtils {
         }
     }
 }
+
